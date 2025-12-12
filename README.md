@@ -39,7 +39,13 @@ pip install pywin32
 
 ```python
 if __name__ == "__main__":
-    FOLDER = r"D:\Work\建能院\_技术资源池V1.0\电源电气"  # 源文件夹路径
+    # 方式一：使用绝对路径
+    # FOLDER = r"D:\Work\xxx"
+    
+    # 方式二：使用相对路径（推荐）
+    SCRIPT_DIR = Path(__file__).parent.resolve()
+    FOLDER = str(SCRIPT_DIR / "测试")  # 源文件夹路径（相对于脚本所在目录）
+    
     OUTPUT_NAME = "最终合并版_WPS专用.xls"  # 输出文件名
 ```
 
@@ -58,7 +64,13 @@ from pathlib import Path
 from wps_combiner import merge_wps_fix_save
 
 # 指定源文件夹和输出文件名
-source_folder = r"D:\Work\建能院\_技术资源池V1.0\电源电气"
+# 方式一：使用绝对路径
+# source_folder = r"D:\Work\xxx"
+
+# 方式二：使用相对路径（推荐）
+script_dir = Path(__file__).parent.resolve()
+source_folder = str(script_dir / "测试")
+
 output_filename = "最终合并版_WPS专用.xls"
 
 merge_wps_fix_save(source_folder, output_filename)
@@ -103,7 +115,7 @@ merge_wps_fix_save(source_folder, output_filename)
 2. **文件占用**：运行前请确保源文件夹中的文件未被其他程序打开
 3. **进程清理**：工具会自动清理后台进程，可能会关闭正在运行的 WPS/Excel
 4. **工作表数量**：合并后的工作表数量取决于源文件数量，请确保不超过 Excel/WPS 的限制
-5. **路径问题**：建议使用绝对路径，避免相对路径导致的文件找不到问题
+5. **路径问题**：支持绝对路径和相对路径两种方式，推荐使用相对路径（基于脚本所在目录）
 
 ## 🐛 常见问题
 
