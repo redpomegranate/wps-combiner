@@ -152,11 +152,11 @@ if __name__ == "__main__":
     # ==========================================
     
     # 方式一：使用绝对路径（示例）
-    # FOLDER = r"D:\Work\建能院\_技术资源池V1.0\电源电气"
+    # FOLDER = r"D:\Work\xxx"
     
     # 方式二：使用相对路径（推荐，基于脚本所在目录）
     SCRIPT_DIR = Path(__file__).parent.resolve()
-    FOLDER = str(SCRIPT_DIR / "电源电气")
+    FOLDER = str(SCRIPT_DIR / "测试")
     
     # 输出文件名
     OUTPUT_NAME = "最终合并版_WPS专用.xls"
