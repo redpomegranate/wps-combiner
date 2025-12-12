@@ -147,7 +147,10 @@ def merge_wps_fix_save(source_folder, output_filename):
 
 
 if __name__ == "__main__":
-    FOLDER = r"D:\Work\建能院\_技术资源池V1.0\电源电气"
+    # 使用脚本所在目录作为基准路径
+    SCRIPT_DIR = Path(__file__).parent.resolve()
+    # 相对路径：脚本所在目录下的"电源电气"文件夹
+    FOLDER = str(SCRIPT_DIR / "电源电气")
     # 🔴 注意：后缀名改为 .xls 以获得最佳兼容性
     OUTPUT_NAME = "最终合并版_WPS专用.xls"
 
